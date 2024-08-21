@@ -20,7 +20,7 @@ mod matchmaking {
         team::{Team},
         piece::{Piece}
     };
-
+ 
     use camini::types::{Location, Vec2};
 
     #[abi(embed_v0)]
@@ -70,7 +70,7 @@ mod matchmaking {
             let mut player = get!(world, address, (Player));
             player.games.append(game_id);
             
-            set!(world, (game, player));
+            set!(world, (team, game, player));
 
         }
 
@@ -100,9 +100,9 @@ mod matchmaking {
                 index += 1;
             };
 
-            self.update_pieces(world, game_id);
             global.pending_games = updated_games;           
             game.status = Status::Active;
+            self.update_pieces(world, game_id);
 
             set!(world, (game, global));
 
