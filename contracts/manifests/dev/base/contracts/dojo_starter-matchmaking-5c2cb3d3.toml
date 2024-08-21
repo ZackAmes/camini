@@ -1,0 +1,14 @@
+kind = "DojoContract"
+class_hash = "0x616f4231bcbd91b3c82103c85d460847d77a5534e67a86b72f31435ed9bda6"
+original_class_hash = "0x616f4231bcbd91b3c82103c85d460847d77a5534e67a86b72f31435ed9bda6"
+base_class_hash = "0x0"
+abi = "manifests/dev/base/abis/contracts/dojo_starter-matchmaking-5c2cb3d3.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "dojo_starter-matchmaking"
+systems = [
+    "join_game",
+    "start_game",
+]
+manifest_name = "dojo_starter-matchmaking-5c2cb3d3"
