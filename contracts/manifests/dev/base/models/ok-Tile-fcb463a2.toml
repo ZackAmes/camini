@@ -1,0 +1,21 @@
+kind = "DojoModel"
+class_hash = "0x554e5c606a36b0e80b23a470e8498856a1d4924d50aabf406eab69fb1c14cf1"
+original_class_hash = "0x554e5c606a36b0e80b23a470e8498856a1d4924d50aabf406eab69fb1c14cf1"
+abi = "manifests/dev/base/abis/models/ok-Tile-fcb463a2.json"
+tag = "ok-Tile"
+manifest_name = "ok-Tile-fcb463a2"
+
+[[members]]
+name = "game_id"
+type = "u32"
+key = true
+
+[[members]]
+name = "position"
+type = "Vec2"
+key = true
+
+[[members]]
+name = "piece"
+type = "u32"
+key = false

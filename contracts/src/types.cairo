@@ -8,7 +8,7 @@ pub enum Location {
 } 
 
 
-#[derive(Copy, Drop, Serde, Introspect)]
+#[derive(Copy, Drop, Serde, Introspect, PartialEq)]
 pub struct Vec2 {
     pub x: i8,
     pub y: i8

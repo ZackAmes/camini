@@ -13,7 +13,7 @@ mod matchmaking {
     use super::{IMatchmaking};
     use starknet::{ContractAddress, get_caller_address, get_block_timestamp};
     use camini::models::{
-        position::{Position}, 
+        position::{Position, Tile}, 
         game::{Game, Status, TurnPhase}, 
         player::{Player}, 
         global::{Global}, 
@@ -134,7 +134,8 @@ mod matchmaking {
                         y = 5;
                     }
                     let position = Position { piece_id, game_id, position: Vec2{ x, y }};
-                    set!(world, (piece, position));
+                    let tile = Tile { game_id, position: Vec2{ x, y }, piece: piece_id};
+                    set!(world, (piece, position, tile));
                 };
                 i+=1;
             };

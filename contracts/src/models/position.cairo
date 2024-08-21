@@ -9,3 +9,13 @@ pub struct Position {
     pub game_id: u32,
     pub position: Vec2,
 }
+
+#[derive(Copy, Drop, Serde)]
+#[dojo::model]
+pub struct Tile {
+    #[key]
+    pub game_id: u32,
+    #[key]
+    pub position: Vec2,
+    pub piece: u32
+}
