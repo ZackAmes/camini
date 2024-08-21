@@ -415,6 +415,10 @@
         "type": "core::array::Array::<core::starknet::contract_address::ContractAddress>"
       },
       {
+        "name": "teams",
+        "type": "core::array::Array::<core::integer::u32>"
+      },
+      {
         "name": "turn_player",
         "type": "core::starknet::contract_address::ContractAddress"
       },

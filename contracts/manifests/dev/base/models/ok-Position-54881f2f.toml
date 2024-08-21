@@ -1,6 +1,6 @@
 kind = "DojoModel"
-class_hash = "0x34d20f0ea4f8dafc5b59f38e5494e09580873f72cd10893221792a576a995fe"
-original_class_hash = "0x34d20f0ea4f8dafc5b59f38e5494e09580873f72cd10893221792a576a995fe"
+class_hash = "0x587a5a54f085893f0e9af9df744794be298c322bd3b8d3986f77488fc49222c"
+original_class_hash = "0x587a5a54f085893f0e9af9df744794be298c322bd3b8d3986f77488fc49222c"
 abi = "manifests/dev/base/abis/models/ok-Position-54881f2f.json"
 tag = "ok-Position"
 manifest_name = "ok-Position-54881f2f"

@@ -1,5 +1,5 @@
 mod systems {
-    mod actions;
+    mod arena;
     mod gov;
     mod matchmaking;
     mod gacha;

@@ -1,0 +1,11 @@
+kind = "DojoContract"
+class_hash = "0x1858736a8a2617975a9937c6039e2af359c146ca5a9e8b4f51eb31db1d818df"
+original_class_hash = "0x1858736a8a2617975a9937c6039e2af359c146ca5a9e8b4f51eb31db1d818df"
+base_class_hash = "0x0"
+abi = "manifests/dev/base/abis/contracts/ok-arena-69309f5d.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "ok-arena"
+systems = []
+manifest_name = "ok-arena-69309f5d"

@@ -37,7 +37,6 @@ mod teambuilder {
             let mut piece = get!(world, piece_id, (Piece));
             assert!(piece.location == Location::Owner, "piece not available");
             
-
             team.pieces.append(piece_id);
             piece.location = Location::Team(team_id);
 

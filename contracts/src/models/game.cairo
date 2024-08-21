@@ -6,6 +6,7 @@ pub struct Game {
     #[key]
     pub game_id: u32,
     pub players: Array<ContractAddress>,
+    pub teams: Array<u32>,
     pub turn_player: ContractAddress,
     pub status: Status,
     pub phase: TurnPhase

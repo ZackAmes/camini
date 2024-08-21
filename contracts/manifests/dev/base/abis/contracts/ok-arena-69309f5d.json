@@ -128,22 +128,22 @@
   },
   {
     "type": "impl",
-    "name": "ActionsImpl",
-    "interface_name": "camini::systems::actions::IActions"
+    "name": "arenaImpl",
+    "interface_name": "camini::systems::arena::IArena"
   },
   {
     "type": "interface",
-    "name": "camini::systems::actions::IActions",
+    "name": "camini::systems::arena::IArena",
     "items": []
   },
   {
     "type": "impl",
     "name": "IDojoInitImpl",
-    "interface_name": "camini::systems::actions::actions::IDojoInit"
+    "interface_name": "camini::systems::arena::arena::IDojoInit"
   },
   {
     "type": "interface",
-    "name": "camini::systems::actions::actions::IDojoInit",
+    "name": "camini::systems::arena::arena::IDojoInit",
     "items": [
       {
         "type": "function",
@@ -203,7 +203,7 @@
   },
   {
     "type": "event",
-    "name": "camini::systems::actions::actions::Event",
+    "name": "camini::systems::arena::arena::Event",
     "kind": "enum",
     "variants": [
       {

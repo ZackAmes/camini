@@ -368,7 +368,7 @@
   },
   {
     "type": "struct",
-    "name": "camini::models::position::Vec2",
+    "name": "camini::types::Vec2",
     "members": [
       {
         "name": "x",
@@ -394,7 +394,7 @@
       },
       {
         "name": "position",
-        "type": "camini::models::position::Vec2"
+        "type": "camini::types::Vec2"
       }
     ]
   },

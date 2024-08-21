@@ -133,7 +133,7 @@
   },
   {
     "type": "struct",
-    "name": "camini::models::position::Vec2",
+    "name": "camini::types::Vec2",
     "members": [
       {
         "name": "x",
@@ -155,7 +155,7 @@
         "inputs": [],
         "outputs": [
           {
-            "type": "core::array::Array::<camini::models::position::Vec2>"
+            "type": "core::array::Array::<camini::types::Vec2>"
           }
         ],
         "state_mutability": "view"
