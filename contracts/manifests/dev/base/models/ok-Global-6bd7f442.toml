@@ -1,0 +1,16 @@
+kind = "DojoModel"
+class_hash = "0x42e1e354d83e0e3b77b9dded0a67829b96744deba82fdbb3d15fde55b2aaec7"
+original_class_hash = "0x42e1e354d83e0e3b77b9dded0a67829b96744deba82fdbb3d15fde55b2aaec7"
+abi = "manifests/dev/base/abis/models/ok-Global-6bd7f442.json"
+tag = "ok-Global"
+manifest_name = "ok-Global-6bd7f442"
+
+[[members]]
+name = "global_key"
+type = "u8"
+key = true
+
+[[members]]
+name = "pending_games"
+type = "Array<u32>"
+key = false

@@ -1,0 +1,16 @@
+kind = "DojoModel"
+class_hash = "0x1e3fdd5f0560c0605d40069d77312ca69b0b34f136b8a6c2ccab0d0050efbae"
+original_class_hash = "0x1e3fdd5f0560c0605d40069d77312ca69b0b34f136b8a6c2ccab0d0050efbae"
+abi = "manifests/dev/base/abis/models/ok-Pool-a9992632.json"
+tag = "ok-Pool"
+manifest_name = "ok-Pool-a9992632"
+
+[[members]]
+name = "pool_id"
+type = "u32"
+key = true
+
+[[members]]
+name = "piece_type_ids"
+type = "Array<u32>"
+key = false

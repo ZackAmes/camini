@@ -1,0 +1,21 @@
+kind = "DojoModel"
+class_hash = "0x5ac8f789c527db8d966c26a8f899ac0dcced6a8d76b72e3b53009445f9e50da"
+original_class_hash = "0x5ac8f789c527db8d966c26a8f899ac0dcced6a8d76b72e3b53009445f9e50da"
+abi = "manifests/dev/base/abis/models/ok-Piece-828eb000.json"
+tag = "ok-Piece"
+manifest_name = "ok-Piece-828eb000"
+
+[[members]]
+name = "piece_id"
+type = "u32"
+key = true
+
+[[members]]
+name = "owner"
+type = "ContractAddress"
+key = false
+
+[[members]]
+name = "contract"
+type = "ContractAddress"
+key = false

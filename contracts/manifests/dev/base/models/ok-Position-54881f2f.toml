@@ -1,0 +1,21 @@
+kind = "DojoModel"
+class_hash = "0x34d20f0ea4f8dafc5b59f38e5494e09580873f72cd10893221792a576a995fe"
+original_class_hash = "0x34d20f0ea4f8dafc5b59f38e5494e09580873f72cd10893221792a576a995fe"
+abi = "manifests/dev/base/abis/models/ok-Position-54881f2f.json"
+tag = "ok-Position"
+manifest_name = "ok-Position-54881f2f"
+
+[[members]]
+name = "piece_id"
+type = "u32"
+key = true
+
+[[members]]
+name = "game_id"
+type = "u32"
+key = false
+
+[[members]]
+name = "position"
+type = "Vec2"
+key = false
