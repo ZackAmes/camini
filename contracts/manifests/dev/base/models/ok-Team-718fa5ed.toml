@@ -1,0 +1,26 @@
+kind = "DojoModel"
+class_hash = "0x1a48c25b88bb27ac5a689f9016fed98b2f408cb79f89cbb529e5f408546e4d6"
+original_class_hash = "0x1a48c25b88bb27ac5a689f9016fed98b2f408cb79f89cbb529e5f408546e4d6"
+abi = "manifests/dev/base/abis/models/ok-Team-718fa5ed.json"
+tag = "ok-Team"
+manifest_name = "ok-Team-718fa5ed"
+
+[[members]]
+name = "team_id"
+type = "u32"
+key = true
+
+[[members]]
+name = "owner"
+type = "ContractAddress"
+key = false
+
+[[members]]
+name = "pieces"
+type = "Array<u32>"
+key = false
+
+[[members]]
+name = "location"
+type = "Location"
+key = false

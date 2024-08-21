@@ -1,6 +1,6 @@
 kind = "DojoContract"
-class_hash = "0x19294ac5887d99a7bc7047ddb205ea3ef78676308c5695f0d752b64f352360d"
-original_class_hash = "0x19294ac5887d99a7bc7047ddb205ea3ef78676308c5695f0d752b64f352360d"
+class_hash = "0xa5d45db81ba006085ce0e8d4d6490cc5a373a95064ab836128a7817f69010e"
+original_class_hash = "0xa5d45db81ba006085ce0e8d4d6490cc5a373a95064ab836128a7817f69010e"
 base_class_hash = "0x0"
 abi = "manifests/dev/base/abis/contracts/ok-gacha-25121cda.json"
 reads = []

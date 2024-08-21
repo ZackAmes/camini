@@ -1,0 +1,14 @@
+kind = "DojoContract"
+class_hash = "0x597f42a6a4053cd6b99f1d8a985d6f4b297bf4edd58ac6735af1d85c1c8224a"
+original_class_hash = "0x597f42a6a4053cd6b99f1d8a985d6f4b297bf4edd58ac6735af1d85c1c8224a"
+base_class_hash = "0x0"
+abi = "manifests/dev/base/abis/contracts/ok-teambuilder-5d16e22b.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "ok-teambuilder"
+systems = [
+    "add_piece_to_team",
+    "remove_piece_from_team",
+]
+manifest_name = "ok-teambuilder-5d16e22b"

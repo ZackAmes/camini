@@ -363,8 +363,8 @@
   },
   {
     "type": "impl",
-    "name": "pieceImpl",
-    "interface_name": "camini::models::piece::Ipiece"
+    "name": "teamImpl",
+    "interface_name": "camini::models::team::Iteam"
   },
   {
     "type": "enum",
@@ -390,10 +390,10 @@
   },
   {
     "type": "struct",
-    "name": "camini::models::piece::Piece",
+    "name": "camini::models::team::Team",
     "members": [
       {
-        "name": "piece_id",
+        "name": "team_id",
         "type": "core::integer::u32"
       },
       {
@@ -401,8 +401,8 @@
         "type": "core::starknet::contract_address::ContractAddress"
       },
       {
-        "name": "piece_type",
-        "type": "core::integer::u32"
+        "name": "pieces",
+        "type": "core::array::Array::<core::integer::u32>"
       },
       {
         "name": "location",
@@ -412,7 +412,7 @@
   },
   {
     "type": "interface",
-    "name": "camini::models::piece::Ipiece",
+    "name": "camini::models::team::Iteam",
     "items": [
       {
         "type": "function",
@@ -420,7 +420,7 @@
         "inputs": [
           {
             "name": "model",
-            "type": "camini::models::piece::Piece"
+            "type": "camini::models::team::Team"
           }
         ],
         "outputs": [],
@@ -430,7 +430,7 @@
   },
   {
     "type": "event",
-    "name": "camini::models::piece::piece::Event",
+    "name": "camini::models::team::team::Event",
     "kind": "enum",
     "variants": []
   }

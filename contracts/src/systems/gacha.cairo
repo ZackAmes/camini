@@ -15,7 +15,7 @@ mod gacha {
     use camini::models::piece::{Piece};
     use camini::models::player::{Player};
     use camini::consts::consts::{POOL_ID};
-
+    use camini::types::Location;
 
     #[abi(embed_v0)]
     impl gachaImpl of IGacha<ContractState> {
@@ -31,16 +31,13 @@ mod gacha {
             let mut dice = DiceTrait::new(pool.piece_type_ids.len().try_into().unwrap(), get_block_timestamp().into());
             let piece_type: u32 = dice.roll().into();
 
-            let piece = Piece { piece_id, owner, piece_type};
+            let piece = Piece { piece_id, owner, piece_type, location: Location::Owner};
             player.pieces.append(piece_id);
 
             set!(world, (player, piece));
 
             piece_id
-
         }
-
-
     }
 
 

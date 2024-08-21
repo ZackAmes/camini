@@ -1,4 +1,5 @@
 use starknet::ContractAddress;
+use camini::types::Location;
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]
@@ -6,9 +7,9 @@ pub struct Piece {
     #[key]
     piece_id: u32,
     owner: ContractAddress,
-    piece_type: u32
+    piece_type: u32,
+    location: Location
 }
-
 
 #[derive(Copy, Drop, Serde)]
 #[dojo::model]

@@ -3,6 +3,7 @@ mod systems {
     mod gov;
     mod matchmaking;
     mod gacha;
+    mod teambuilder;
 }
 
 mod models {
@@ -12,6 +13,7 @@ mod models {
     mod position;
     mod pool;
     mod piece;
+    mod team;
 }
 
 mod pieces {
@@ -21,6 +23,8 @@ mod pieces {
 }
 
 mod consts;
+
+mod types;
 
 mod tests {
     mod test_world;
