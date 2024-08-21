@@ -379,8 +379,8 @@
         "type": "core::starknet::contract_address::ContractAddress"
       },
       {
-        "name": "contract",
-        "type": "core::starknet::contract_address::ContractAddress"
+        "name": "piece_type",
+        "type": "core::integer::u32"
       }
     ]
   },

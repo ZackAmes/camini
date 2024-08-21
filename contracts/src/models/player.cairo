@@ -5,6 +5,7 @@ use starknet::ContractAddress;
 pub struct Player {
     #[key]
     pub address: ContractAddress,
-    pub games: Array<u32>
+    pub games: Array<u32>,
+    pub pieces: Array<u32>
 }
 

@@ -1,0 +1,11 @@
+kind = "DojoContract"
+class_hash = "0x613735deac7585453ebc68e66f6949b26b4daf2e363da43fa2d31595dde0552"
+original_class_hash = "0x613735deac7585453ebc68e66f6949b26b4daf2e363da43fa2d31595dde0552"
+base_class_hash = "0x0"
+abi = "manifests/dev/base/abis/contracts/ok-a-2fed5b94.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "ok-a"
+systems = []
+manifest_name = "ok-a-2fed5b94"

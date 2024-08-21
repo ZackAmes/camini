@@ -2,6 +2,7 @@ mod systems {
     mod actions;
     mod gov;
     mod matchmaking;
+    mod gacha;
 }
 
 mod models {
@@ -15,6 +16,8 @@ mod models {
 
 mod pieces {
     mod pieces;
+    mod a;
+    mod b;
 }
 
 mod consts;

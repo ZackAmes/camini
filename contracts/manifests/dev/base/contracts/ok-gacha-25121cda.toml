@@ -1,0 +1,11 @@
+kind = "DojoContract"
+class_hash = "0x19294ac5887d99a7bc7047ddb205ea3ef78676308c5695f0d752b64f352360d"
+original_class_hash = "0x19294ac5887d99a7bc7047ddb205ea3ef78676308c5695f0d752b64f352360d"
+base_class_hash = "0x0"
+abi = "manifests/dev/base/abis/contracts/ok-gacha-25121cda.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "ok-gacha"
+systems = []
+manifest_name = "ok-gacha-25121cda"

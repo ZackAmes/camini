@@ -7,7 +7,7 @@ trait IGov {
 }
 
 #[dojo::contract]
-mod Gov {
+mod gov {
     use super::IGov;
     use camini::models::{pool::{Pool}, piece::PieceType, position::{Vec2}};
     use camini::consts::consts::POOL_ID;

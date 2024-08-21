@@ -1,0 +1,11 @@
+kind = "DojoContract"
+class_hash = "0x4556c17e956a3da1316392597c3ad7d8887b0e240300667100e0a0779608a81"
+original_class_hash = "0x4556c17e956a3da1316392597c3ad7d8887b0e240300667100e0a0779608a81"
+base_class_hash = "0x0"
+abi = "manifests/dev/base/abis/contracts/ok-gov-3de021f4.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "ok-gov"
+systems = ["add_piece"]
+manifest_name = "ok-gov-3de021f4"

@@ -6,6 +6,7 @@ name = "camini"
 version = "0.1.0"
 dependencies = [
  "dojo",
+ "origami_random",
 ]
 
 [[package]]
@@ -20,3 +21,8 @@ dependencies = [
 name = "dojo_plugin"
 version = "1.0.0-alpha.4"
 source = "git+https://github.com/dojoengine/dojo?rev=f15def33#f15def330c0d099e79351d11c197f63e8cc1ff36"
+
+[[package]]
+name = "origami_random"
+version = "1.0.0-alpha.6"
+source = "git+https://github.com/dojoengine/origami#5b15e6db48f93e196541aa9d948ea159dcededbf"

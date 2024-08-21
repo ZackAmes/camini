@@ -6,7 +6,7 @@ pub struct Piece {
     #[key]
     piece_id: u32,
     owner: ContractAddress,
-    contract: ContractAddress
+    piece_type: u32
 }
 
 

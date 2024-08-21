@@ -152,11 +152,11 @@
   {
     "type": "impl",
     "name": "IDojoInitImpl",
-    "interface_name": "camini::systems::gov::Gov::IDojoInit"
+    "interface_name": "camini::systems::gov::gov::IDojoInit"
   },
   {
     "type": "interface",
-    "name": "camini::systems::gov::Gov::IDojoInit",
+    "name": "camini::systems::gov::gov::IDojoInit",
     "items": [
       {
         "type": "function",
@@ -216,7 +216,7 @@
   },
   {
     "type": "event",
-    "name": "camini::systems::gov::Gov::Event",
+    "name": "camini::systems::gov::gov::Event",
     "kind": "enum",
     "variants": [
       {
