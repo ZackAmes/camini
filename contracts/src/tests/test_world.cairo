@@ -9,7 +9,8 @@ mod tests {
         systems::{actions::{actions, IActionsDispatcher, IActionsDispatcherTrait},
                 gov::{gov, IGovDispatcher, IGovDispatcherTrait},
                 matchmaking::{matchmaking, IMatchmakingDispatcher, IMatchmakingDispatcherTrait},
-                gacha::{gacha, IGachaDispatcher, IGachaDispatcherTrait}
+                gacha::{gacha, IGachaDispatcher, IGachaDispatcherTrait},
+                teambuilder::{teambuilder, ITeambuilderDispatcher, ITeambuilderDispatcherTrait}
                 
             },
         models::{game::{Game, game}, 
@@ -18,8 +19,10 @@ mod tests {
                 player::{Player, player},
                 pool::{Pool, pool}, 
                 piece::{Piece, PieceType, piece, piece_type},
+                team::{Team, team}
             },
         pieces::{pieces::{IPieceDispatcher, IPieceDispatcherTrait}, a::{a}, b::{b}},
+        types::{Location},
         consts::consts::{POOL_ID}
     };
 
@@ -27,7 +30,8 @@ mod tests {
                     IActionsDispatcher, 
                     IMatchmakingDispatcher, 
                     IGovDispatcher, 
-                    IGachaDispatcher) {
+                    IGachaDispatcher,
+                    ITeambuilderDispatcher) {
 
         let caller = starknet::contract_address_const::<0x0>();
 
@@ -38,7 +42,8 @@ mod tests {
                                 player::TEST_CLASS_HASH,
                                 pool::TEST_CLASS_HASH,
                                 piece::TEST_CLASS_HASH,
-                                piece_type::TEST_CLASS_HASH];
+                                piece_type::TEST_CLASS_HASH,
+                                team::TEST_CLASS_HASH];
 
         // deploy world with models
         let world = spawn_test_world(["ok"].span(), models.span());
@@ -52,19 +57,22 @@ mod tests {
             .deploy_contract('gov', gov::TEST_CLASS_HASH.try_into().unwrap());
         let gacha_address = world
             .deploy_contract('gacha', gacha::TEST_CLASS_HASH.try_into().unwrap());
-        
+        let teambuilder_address = world
+            .deploy_contract('team', teambuilder::TEST_CLASS_HASH.try_into().unwrap());
+
         let actions_system = IActionsDispatcher { contract_address: actions_address };
         let matchmaking_system = IMatchmakingDispatcher { contract_address: matchmaking_address };
         let gov_system = IGovDispatcher { contract_address: gov_address };
         let gacha_system = IGachaDispatcher {contract_address: gacha_address};
-
+        let teambuilder_system = ITeambuilderDispatcher {contract_address: teambuilder_address};
 
         world.grant_writer(dojo::utils::bytearray_hash(@"ok"), actions_address);
         world.grant_writer(dojo::utils::bytearray_hash(@"ok"), matchmaking_address);
         world.grant_writer(dojo::utils::bytearray_hash(@"ok"), gov_address);
         world.grant_writer(dojo::utils::bytearray_hash(@"ok"), gacha_address);
+        world.grant_writer(dojo::utils::bytearray_hash(@"ok"), teambuilder_address);
 
-        (world, actions_system, matchmaking_system, gov_system, gacha_system)
+        (world, actions_system, matchmaking_system, gov_system, gacha_system, teambuilder_system)
     }
 
     #[test]
@@ -72,7 +80,7 @@ mod tests {
         // caller
         let caller = starknet::contract_address_const::<0x0>();
 
-        let (world, actions, matchmaking, gov, gacha) = setup();
+        let (world, actions, matchmaking, gov, gacha, teambuilder) = setup();
 
         let a_address = world
             .deploy_contract('a', a::TEST_CLASS_HASH.try_into().unwrap());
@@ -93,7 +101,7 @@ mod tests {
         // caller
         let caller = starknet::contract_address_const::<0x0>();
 
-        let (world, actions, matchmaking, gov, gacha) = setup();
+        let (world, actions, matchmaking, gov, gacha, teambuilder) = setup();
 
         let a_address = world
             .deploy_contract('a', a::TEST_CLASS_HASH.try_into().unwrap());
@@ -108,6 +116,74 @@ mod tests {
         let piece = get!(world, piece_id, (Piece));
 
         assert!(piece.owner == caller, "piece not minted");
+
+    }
+
+    #[test]
+    fn test_add_to_team() {
+        let caller = starknet::contract_address_const::<0x0>();
+
+        let (world, actions, matchmaking, gov, gacha, teambuilder) = setup();
+
+        let a_address = world
+            .deploy_contract('a', a::TEST_CLASS_HASH.try_into().unwrap());
+        let b_address = world
+            .deploy_contract('b', b::TEST_CLASS_HASH.try_into().unwrap());
+
+        gov.add_piece(a_address);
+        gov.add_piece(b_address);
+
+        let piece_id = gacha.mint();
+
+        let team_id = teambuilder.create_team();
+
+        teambuilder.add_piece_to_team(team_id, piece_id);
+
+        let team = get!(world, team_id, (Team));
+
+        let piece = get!(world, piece_id, (Piece));
+
+        assert!(team.pieces.len() == 1, "piece not in team");
+        assert!(piece.location == Location::Team(team_id), "piece location not updated");
+
+
+
+    }
+    
+    #[test]
+    fn test_remove_from_team() {
+        let caller = starknet::contract_address_const::<0x0>();
+
+        let (world, actions, matchmaking, gov, gacha, teambuilder) = setup();
+
+        let a_address = world
+            .deploy_contract('a', a::TEST_CLASS_HASH.try_into().unwrap());
+        let b_address = world
+            .deploy_contract('b', b::TEST_CLASS_HASH.try_into().unwrap());
+
+        gov.add_piece(a_address);
+        gov.add_piece(b_address);
+
+        let piece_id = gacha.mint();
+
+        let team_id = teambuilder.create_team();
+
+        teambuilder.add_piece_to_team(team_id, piece_id);
+
+        let team = get!(world, team_id, (Team));
+
+        let piece = get!(world, piece_id, (Piece));
+
+        assert!(team.pieces.len() == 1, "piece not in team");
+        assert!(piece.location == Location::Team(team_id), "piece location not updated");
+
+        teambuilder.remove_piece_from_team(team_id, piece_id);
+        let team = get!(world, team_id, (Team));
+
+        let piece = get!(world, piece_id, (Piece));
+
+        assert!(team.pieces.len() == 0, "piece not removed from team");
+        assert!(piece.location == Location::Owner, "piece location not updated");
 
     }
 
