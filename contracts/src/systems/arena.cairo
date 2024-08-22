@@ -27,19 +27,20 @@ mod arena {
 
             let moves = (IPieceDispatcher { contract_address: piece_type.contract}).get_moves();
 
-            let mut position = get!(world, (game_id, piece_id), (Position));
+            let mut position = get!(world, piece_id, (Position));
             let mut start_tile = get!(world, (game_id, position.position), (Tile));
             let mut end_tile = get!(world, (game_id, to), (Tile));
             
             assert!(end_tile.piece == 0, "tile is occupied");
 
+            
             let mut i = 0;
             let mut valid = false;
             
             while (i < moves.len() && !valid) {
                 let move = *moves.at(i);
                 valid = (position.position.x + move.x == to.x && position.position.y + move.y == to.y);
-
+                println!("x_start: {} move_x: {} to_X: {}", position.position.x, move.x, to.x);
                 i+=1;
 
             };
@@ -50,6 +51,7 @@ mod arena {
             end_tile = Tile { game_id, position: to, piece: piece_id};
             
             set!(world, (position, start_tile, end_tile)); 
+            //TODO
 
         }
 

@@ -18,10 +18,15 @@ mod models {
 
 mod pieces {
     mod pieces;
+ //   mod piececomponent;
     mod a;
     mod b;
 }
 
+mod effects {
+    mod effects;
+    mod damage;
+}
 mod consts;
 
 mod types;

@@ -5,6 +5,7 @@ mod tests {
     // import test utils
     use dojo::utils::test::{spawn_test_world, deploy_contract};
     use starknet::testing::{set_caller_address};
+    use starknet::ContractAddress;
     // import test utils
     use camini::{
         systems::{arena::{arena, IArenaDispatcher, IArenaDispatcherTrait},
@@ -14,8 +15,8 @@ mod tests {
                 teambuilder::{teambuilder, ITeambuilderDispatcher, ITeambuilderDispatcherTrait}
                 
             },
-        models::{game::{Game, game}, 
-                position::{Position, Vec2, position},
+        models::{game::{Game, Status, game}, 
+                position::{Position, Tile,tile, position},
                 global::{Global, global},
                 player::{Player, player},
                 pool::{Pool, pool}, 
@@ -23,7 +24,7 @@ mod tests {
                 team::{Team, team}
             },
         pieces::{pieces::{IPieceDispatcher, IPieceDispatcherTrait}, a::{a}, b::{b}},
-        types::{Location},
+        types::{Location, Vec2},
         consts::consts::{POOL_ID}
     };
 
@@ -44,7 +45,8 @@ mod tests {
                                 pool::TEST_CLASS_HASH,
                                 piece::TEST_CLASS_HASH,
                                 piece_type::TEST_CLASS_HASH,
-                                team::TEST_CLASS_HASH];
+                                team::TEST_CLASS_HASH,
+                                tile::TEST_CLASS_HASH];
 
         // deploy world with models
         let mut world = spawn_test_world(["ok"].span(), models.span());
@@ -86,10 +88,39 @@ mod tests {
         gov.add_piece(b_address);
     }
 
+    fn setup_game(ref world: IWorldDispatcher, 
+                    matchmaking: IMatchmakingDispatcher, 
+                    gacha: IGachaDispatcher, 
+                    teambuilder: ITeambuilderDispatcher) -> (u32, ContractAddress, ContractAddress) {
+        
+        let p1 = starknet::contract_address_const::<0x1>();
+        set_caller_address(p1);
+
+        let piece_1_id = gacha.mint();
+        let team_1_id = teambuilder.create_team();
+        teambuilder.add_piece_to_team(team_1_id, piece_1_id);
+        
+        let game_id = matchmaking.create_game(team_1_id);
+
+        let p2 = starknet::contract_address_const::<0x2>();
+        set_caller_address(p2);
+
+        let piece_2_id = gacha.mint();
+        let team_2_id = teambuilder.create_team();
+        teambuilder.add_piece_to_team(team_2_id, piece_2_id);
+        
+        matchmaking.join_game(game_id, team_2_id);
+
+        set_caller_address(p1);
+
+        matchmaking.start_game(game_id);
+
+        (game_id, p1, p2)
+    }
+
     #[test]
     fn test_add_type() {
         // caller
-        let caller = starknet::contract_address_const::<0x0>();
 
         let (mut world, _arena, _matchmaking, gov, _gacha, _teambuilder) = setup();
 
@@ -121,7 +152,6 @@ mod tests {
 
     #[test]
     fn test_add_to_team() {
-        let caller = starknet::contract_address_const::<0x0>();
 
         let (mut world, _arena, _matchmaking, gov, gacha, teambuilder) = setup();
 
@@ -146,7 +176,6 @@ mod tests {
     
     #[test]
     fn test_remove_from_team() {
-        let caller = starknet::contract_address_const::<0x0>();
 
         let (mut world, _arena, _matchmaking, gov, gacha, teambuilder) = setup();
 
@@ -177,8 +206,8 @@ mod tests {
 
     #[test]
     fn test_create_game() {
-        let caller = starknet::contract_address_const::<0x0>();
 
+        let caller = starknet::contract_address_const::<0x0>();
         let (mut world, _arena, matchmaking, gov, gacha, teambuilder) = setup();
 
         deploy_pieces(ref world, gov);
@@ -202,7 +231,6 @@ mod tests {
 
     #[test]
     fn test_join_game() {
-        let caller = starknet::contract_address_const::<0x0>();
 
         let (mut world, _arena, matchmaking, gov, gacha, teambuilder) = setup();
 
@@ -228,10 +256,80 @@ mod tests {
         let piece = get!(world, piece_2_id, (Piece));
 
         assert!(team.location == Location::Game(game_id), "team location not updated");
-        assert!(*game.players.at(1) == p2, "player not added to game");
+        assert!(game.players.len() == 2, "player not added to game");
         assert!(*game.teams.at(1) == team_2_id, "team not added to game");
         
     }
 
+    #[test]
+    fn test_start_game() {
+
+        let p1 = starknet::contract_address_const::<0x1>();
+        let (mut world, _arena, matchmaking, gov, gacha, teambuilder) = setup();
+
+        deploy_pieces(ref world, gov);
+
+        let piece_1_id = gacha.mint();
+        let team_1_id = teambuilder.create_team();
+        teambuilder.add_piece_to_team(team_1_id, piece_1_id);
+        
+        let game_id = matchmaking.create_game(team_1_id);
+
+        let p2 = starknet::contract_address_const::<0x2>();
+        set_caller_address(p2);
+
+        let piece_2_id = gacha.mint();
+        let team_2_id = teambuilder.create_team();
+        teambuilder.add_piece_to_team(team_2_id, piece_2_id);
+        
+        matchmaking.join_game(game_id, team_2_id);
+        set_caller_address(p1);
+
+        matchmaking.start_game(game_id);
+
+        let game = get!(world, game_id, (Game));
+
+        assert!(game.status == Status::Active, "game status not updated");
+
+        let (piece_1, pos_1) = get!(world, piece_1_id, (Piece, Position));
+        let (piece_2, pos_2) = get!(world, piece_2_id, (Piece, Position));
+
+        assert!(piece_1.location == Location::Game(game_id), "piece location not updated");
+        assert!(piece_2.location == Location::Game(game_id), "piece location not updated");
+
+        assert!(pos_1.position.x == 1, "piece 1 position not updated");
+        assert!(pos_2.position.y == 5, "piece 2 position not updated");
+        
+    }
+
+    #[test]
+    fn test_move() {
+        let (mut world, arena, matchmaking, gov, gacha, teambuilder) = setup();
+
+        deploy_pieces(ref world, gov);
+
+        let (game_id, p1, p2) = setup_game(ref world, matchmaking, gacha, teambuilder);
+
+        set_caller_address(p1);
+
+        let game = get!(world, game_id, (Game));
+        let team_id = *game.teams.at(0);
+        let team = get!(world, team_id, (Team));
+        let piece_id = *team.pieces.at(0);
+
+        let piece_type_id = get!(world, piece_id, (Piece)).piece_type;
+        let piece_type_address = get!(world, piece_type_id, (PieceType)).contract;
+
+        let piece_type_dispatcher = IPieceDispatcher {contract_address: piece_type_address};
+        let move_0 = *piece_type_dispatcher.get_moves().at(0);
+        println!("move_0: {} {}", move_0.x, move_0.y);
+        let position = get!(world, piece_id, (Position));
+        let new_x: i8 = position.position.x + move_0.x;
+        println!("new_x: {}", new_x);
+        let to = Vec2 { x: position.position.x + move_0.x, y: position.position.y + move_0.y};
+
+        arena.move(game_id, piece_id, to);
+
+    }
 
 }

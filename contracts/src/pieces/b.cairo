@@ -13,6 +13,10 @@ mod b{
             res
         }
 
+
+        fn get_base_health() -> u32 {
+            750
+        }
     }
 
 

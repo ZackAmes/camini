@@ -69,6 +69,8 @@ mod matchmaking {
 
             let mut player = get!(world, address, (Player));
             player.games.append(game_id);
+            game.teams.append(team_id);
+            game.players.append(address);
             
             set!(world, (team, game, player));
 
@@ -89,7 +91,7 @@ mod matchmaking {
 
             let mut index = 0;
 
-            while index < global.pending_games.len() {
+            loop {
 
                 let to_check = *global.pending_games.at(index);
 
@@ -98,6 +100,9 @@ mod matchmaking {
                 }
 
                 index += 1;
+                if index >= global.pending_games.len() {
+                    break;
+                }
             };
 
             global.pending_games = updated_games;           
@@ -136,7 +141,9 @@ mod matchmaking {
                     let position = Position { piece_id, game_id, position: Vec2{ x, y }};
                     let tile = Tile { game_id, position: Vec2{ x, y }, piece: piece_id};
                     set!(world, (piece, position, tile));
+                    j+=1;
                 };
+
                 i+=1;
             };
         }

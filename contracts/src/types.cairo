@@ -1,4 +1,3 @@
-
 #[derive(Copy, Drop, Serde, Introspect, PartialEq)]
 pub enum Location {
     Owner,
