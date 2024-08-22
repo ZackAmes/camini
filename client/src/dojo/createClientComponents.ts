@@ -1,5 +1,5 @@
 import { overridableComponent } from "@dojoengine/recs";
-import { ContractComponents } from "./generated/contractComponents";
+import { ContractComponents } from "./generated/bindings/typescript/models.gen";
 
 export type ClientComponents = ReturnType<typeof createClientComponents>;
 
@@ -11,6 +11,15 @@ export function createClientComponents({
     return {
         ...contractComponents,
         Position: overridableComponent(contractComponents.Position),
-        Moves: overridableComponent(contractComponents.Moves),
+        Game: overridableComponent(contractComponents.Game),
+        Player: overridableComponent(contractComponents.Player),
+        Tile: overridableComponent(contractComponents.Tile),
+        DamageAmt: overridableComponent(contractComponents.DamageAmt),
+        Global: overridableComponent(contractComponents.Global),
+        Piece: overridableComponent(contractComponents.Piece),
+        PieceType: overridableComponent(contractComponents.PieceType),
+        Pool: overridableComponent(contractComponents.Pool),
+        Team: overridableComponent(contractComponents.Team),
+        Effect: overridableComponent(contractComponents.Effect),
     };
 }

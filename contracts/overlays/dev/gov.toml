@@ -2,5 +2,6 @@ tag = "ok-gov"
 writes = [
     "ok-PieceType",
     "ok-Global",
-    "ok-Effect"
+    "ok-Effect",
+    "ok-Pool"
 ]

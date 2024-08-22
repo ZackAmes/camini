@@ -2,9 +2,9 @@ import { DojoConfig, DojoProvider } from "@dojoengine/core";
 import * as torii from "@dojoengine/torii-client";
 import { createClientComponents } from "../createClientComponents";
 import { createSystemCalls } from "../createSystemCalls";
-import { defineContractComponents } from "./contractComponents";
+import { defineContractComponents } from "./bindings/typescript/models.gen.ts";
 import { world } from "./world";
-import { setupWorld } from "./generated";
+import { setupWorld } from "./bindings/typescript/contracts.gen.ts";
 import { Account, ArraySignatureType } from "starknet";
 import { BurnerManager } from "@dojoengine/create-burner";
 

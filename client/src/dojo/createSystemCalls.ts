@@ -9,134 +9,152 @@ import {
 } from "@dojoengine/recs";
 import { uuid } from "@latticexyz/utils";
 import { ClientComponents } from "./createClientComponents";
-import { Direction, updatePositionWithDirection } from "../utils";
 import { getEntityIdFromKeys } from "@dojoengine/utils";
-import type { IWorld } from "./generated/generated";
+import type { IWorld } from "./generated/bindings/typescript/contracts.gen";
+import { Vec2 } from "./generated/bindings/typescript/models.gen";
 
 export type SystemCalls = ReturnType<typeof createSystemCalls>;
 
+
 export function createSystemCalls(
     { client }: { client: IWorld },
-    { Position, Moves }: ClientComponents,
+    { }: ClientComponents,
     world: World
 ) {
-    const spawn = async (account: AccountInterface) => {
-        const entityId = getEntityIdFromKeys([
-            BigInt(account.address),
-        ]) as Entity;
-
-        const movesId = uuid();
-        Moves.addOverride(movesId, {
-            entity: entityId,
-            value: {
-                player: BigInt(entityId),
-                remaining:
-                    (getComponentValue(Moves, entityId)?.remaining || 0) + 100,
-            },
-        });
-
-        const positionId = uuid();
-        Position.addOverride(positionId, {
-            entity: entityId,
-            value: {
-                player: BigInt(entityId),
-                vec: {
-                    x: 10 + (getComponentValue(Position, entityId)?.vec.x || 0),
-                    y: 10 + (getComponentValue(Position, entityId)?.vec.y || 0),
-                },
-            },
-        });
-
+    const move = async (account: AccountInterface, game_id: number, piece_id: number, to: Vec2) => {
+        
         try {
-            await client.actions.spawn({
+            await client.arena.move({
                 account,
+                game_id,
+                piece_id,
+                to
             });
 
-            // Wait for the indexer to update the entity
-            // By doing this we keep the optimistic UI in sync with the actual state
-            await new Promise<void>((resolve) => {
-                defineSystem(
-                    world,
-                    [
-                        Has(Moves),
-                        HasValue(Moves, { player: BigInt(account.address) }),
-                    ],
-                    () => {
-                        resolve();
-                    }
-                );
-            });
         } catch (e) {
             console.log(e);
-            Position.removeOverride(positionId);
-            Moves.removeOverride(movesId);
         } finally {
-            Position.removeOverride(positionId);
-            Moves.removeOverride(movesId);
+        }
+    };
+    const attack = async (account: AccountInterface, game_id: number, piece_id: number, target: Vec2) => {
+        
+        try {
+            await client.arena.attack({
+                account,
+                game_id,
+                piece_id,
+                target
+            });
+
+        } catch (e) {
+            console.log(e);
+        } finally {
         }
     };
 
-    const move = async (account: AccountInterface, direction: Direction) => {
-        const entityId = getEntityIdFromKeys([
-            BigInt(account.address),
-        ]) as Entity;
-
-        // Update the state before the transaction
-        // const positionId = uuid();
-        // Position.addOverride(positionId, {
-        //     entity: entityId,
-        //     value: {
-        //         player: BigInt(entityId),
-        //         vec: updatePositionWithDirection(
-        //             direction,
-        //             getComponentValue(Position, entityId) as any
-        //         ).vec,
-        //     },
-        // });
-
-        // // Update the state before the transaction
-        // const movesId = uuid();
-        // Moves.addOverride(movesId, {
-        //     entity: entityId,
-        //     value: {
-        //         player: BigInt(entityId),
-        //         remaining:
-        //             (getComponentValue(Moves, entityId)?.remaining || 0) - 1,
-        //     },
-        // });
-
+    const mint = async (account: AccountInterface) => {
+        
         try {
-            await client.actions.move({
-                account,
-                direction,
+            await client.gacha.mint({
+                account
             });
 
-            // Wait for the indexer to update the entity
-            // By doing this we keep the optimistic UI in sync with the actual state
-            await new Promise<void>((resolve) => {
-                defineSystem(
-                    world,
-                    [
-                        Has(Moves),
-                        HasValue(Moves, { player: BigInt(account.address) }),
-                    ],
-                    () => {
-                        resolve();
-                    }
-                );
-            });
         } catch (e) {
             console.log(e);
-            // Position.removeOverride(positionId);
-            // Moves.removeOverride(movesId);
         } finally {
-            // Position.removeOverride(positionId);
-            // Moves.removeOverride(movesId);
         }
     };
+    const create_team = async (account: AccountInterface) => {
+        
+        try {
+            await client.teambuilder.create_team({
+                account
+            });
 
+        } catch (e) {
+            console.log(e);
+        } finally {
+        }
+    };
+    const add_piece_to_team = async (account: AccountInterface, team_id: number, piece_id: number) => {
+        
+        try {
+            await client.teambuilder.add_piece_to_team({
+                account,
+                team_id,
+                piece_id
+            });
+
+        } catch (e) {
+            console.log(e);
+        } finally {
+        }
+    };
+    const remove_piece_from_team = async (account: AccountInterface, team_id: number, piece_id: number) => {
+        
+        try {
+            await client.teambuilder.remove_piece_from_team({
+                account,
+                team_id,
+                piece_id
+            });
+
+        } catch (e) {
+            console.log(e);
+        } finally {
+        }
+    };
+    const create_game = async (account: AccountInterface, team_id: number) => {
+        
+        try {
+            await client.matchmaking.create_game({
+                account,
+                team_id
+            });
+
+        } catch (e) {
+            console.log(e);
+        } finally {
+        }
+    };
+    const join_game = async (account: AccountInterface, game_id: number, team_id) => {
+        
+        try {
+            await client.matchmaking.join_game({
+                account,
+                game_id,
+                team_id
+            });
+
+        } catch (e) {
+            console.log(e);
+        } finally {
+        }
+    };
+    const start_game = async (account: AccountInterface, game_id: number) => {
+        
+        try {
+            await client.matchmaking.start_game({
+                account,
+                game_id
+            });
+
+        } catch (e) {
+            console.log(e);
+        } finally {
+        }
+    };
     return {
-        spawn,
         move,
+        attack,
+        mint,
+        create_game,
+        create_team,
+        join_game,
+        start_game,
+        add_piece_to_team,
+        remove_piece_from_team,
+
+        
     };
 }
