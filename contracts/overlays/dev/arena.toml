@@ -1,0 +1,8 @@
+tag = "ok-arena"
+writes = [
+    "ok-Game",
+    "ok-Position",
+    "ok-Global",
+    "ok-Tile",
+    "ok-Piece",
+]

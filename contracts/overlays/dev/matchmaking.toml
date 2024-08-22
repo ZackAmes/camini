@@ -1,0 +1,9 @@
+tag = "ok-matchmaking"
+writes = [
+    "ok-Global",
+    "ok-Team",
+    "ok-Player",
+    "ok-Piece",
+    "ok-Tile",
+    "ok-Position"
+]

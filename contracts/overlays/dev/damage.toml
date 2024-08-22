@@ -1,0 +1,6 @@
+tag = "ok-damage"
+writes = [
+    "ok-Tile",
+    "ok-Piece",
+    "ok-DamageAmt"
+]

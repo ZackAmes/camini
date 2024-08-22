@@ -12,7 +12,7 @@ mod damage {
     use super::IDamage;
     use camini::effects::effects::IEffect;
     use camini::effects::models::{DamageAmt};
-    use camini::models::{position::Position, piece::Piece};
+    use camini::models::{position::{Position, Tile}, piece::Piece};
     use camini::types::Location;
 
     #[abi(embed_v0)]
@@ -31,7 +31,7 @@ mod damage {
             let caller = get_caller_address();
             let dmg = get!(world, caller, (DamageAmt)).amt;
             let mut target = get!(world, target, (Piece));
-
+            //TODO get game_id from piece location and update tile if destroyed
             if target.data.health > dmg {
                 target.data.health - dmg;
             }

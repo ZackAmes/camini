@@ -1,0 +1,8 @@
+tag = "ok-teambuilder"
+writes = [
+    "ok-Team",
+    "ok-Player",
+    "ok-Piece",
+    "ok-Tile",
+    "ok-Position"
+]

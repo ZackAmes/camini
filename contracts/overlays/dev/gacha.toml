@@ -1,0 +1,5 @@
+tag = "ok-gacha"
+writes = [
+    "ok-Piece",
+    "ok-Player"
+]
