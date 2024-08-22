@@ -1,6 +1,6 @@
 kind = "DojoModel"
-class_hash = "0x42e1e354d83e0e3b77b9dded0a67829b96744deba82fdbb3d15fde55b2aaec7"
-original_class_hash = "0x42e1e354d83e0e3b77b9dded0a67829b96744deba82fdbb3d15fde55b2aaec7"
+class_hash = "0x16f1728b06cb75def1a0ca1364f0b509fa272704ba6dca9e02cfe2e66a53b2a"
+original_class_hash = "0x16f1728b06cb75def1a0ca1364f0b509fa272704ba6dca9e02cfe2e66a53b2a"
 abi = "manifests/dev/base/abis/models/ok-Global-6bd7f442.json"
 tag = "ok-Global"
 manifest_name = "ok-Global-6bd7f442"
@@ -13,4 +13,9 @@ key = true
 [[members]]
 name = "pending_games"
 type = "Array<u32>"
+key = false
+
+[[members]]
+name = "damage_contract"
+type = "ContractAddress"
 key = false

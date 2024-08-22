@@ -5,12 +5,13 @@ use starknet::ContractAddress;
 trait IGov {
     fn add_piece(ref world: IWorldDispatcher, address: ContractAddress);
     fn add_effect(ref world: IWorldDispatcher, address: ContractAddress);
+    fn set_damage_contract(ref world: IWorldDispatcher, address: ContractAddress);
 }
 
 #[dojo::contract]
 mod gov {
     use super::IGov;
-    use camini::models::{pool::{Pool}, piece::PieceType, position::{Vec2}};
+    use camini::models::{pool::{Pool}, piece::PieceType, position::{Vec2}, global::Global};
     use camini::consts::consts::POOL_ID;
     use camini::pieces::pieces::{IPieceDispatcher, IPiece, IPieceDispatcherTrait};
     use camini::effects::effects::{IEffectDispatcher, IEffect, IEffectDispatcherTrait};
@@ -32,7 +33,8 @@ mod gov {
             
             let piece_dispatcher = IPieceDispatcher { contract_address: address};
 
-            let moves: Array<Vec2> = piece_dispatcher.get_moves();
+            //todo check rest of endpoints
+            let moves: Array<Vec2> = piece_dispatcher.get_move_pattern();
 
             assert!(moves.len() > 0, "invalid implementation");
 
@@ -53,6 +55,17 @@ mod gov {
             pool.piece_type_ids = pieces;
 
             set!(world, (pool, piece_type));
+
+        }
+
+        fn set_damage_contract(ref world: IWorldDispatcher, address: ContractAddress) {
+            let mut global = get!(world, 0, (Global));
+
+            assert!(global.damage_contract == starknet::contract_address_const::<0x0>(), "Already set");
+            
+            global.damage_contract = address;
+
+            set!(world, (global));
 
         }
 

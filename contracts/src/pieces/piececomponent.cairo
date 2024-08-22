@@ -35,12 +35,12 @@ mod PieceComponent {
     impl InternalImpl<
         TContractState, +HasComponent<TContractState>
     > of InternalTrait<TContractState> {
-        fn get_moves(
+        fn get_move_pattern(
             self: @ComponentState<TContractState>) -> Span<Vec2> {
             
         }
 
-        
+
 
     }
 }

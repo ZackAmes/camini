@@ -1,11 +1,14 @@
 kind = "DojoContract"
-class_hash = "0x7f6b484886231d0af670926b320be341b9e9bbef4fce099aa26f44ffa1e0ff3"
-original_class_hash = "0x7f6b484886231d0af670926b320be341b9e9bbef4fce099aa26f44ffa1e0ff3"
+class_hash = "0x57edccf66fc280c985d9dc9076f93ee2ca22d93a513b58662c5a968dd576ba3"
+original_class_hash = "0x57edccf66fc280c985d9dc9076f93ee2ca22d93a513b58662c5a968dd576ba3"
 base_class_hash = "0x0"
 abi = "manifests/dev/base/abis/contracts/ok-arena-69309f5d.json"
 reads = []
 writes = []
 init_calldata = []
 tag = "ok-arena"
-systems = ["move"]
+systems = [
+    "move",
+    "attack",
+]
 manifest_name = "ok-arena-69309f5d"

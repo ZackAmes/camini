@@ -321,11 +321,9 @@ mod tests {
         let piece_type_address = get!(world, piece_type_id, (PieceType)).contract;
 
         let piece_type_dispatcher = IPieceDispatcher {contract_address: piece_type_address};
-        let move_0 = *piece_type_dispatcher.get_moves().at(0);
-        println!("move_0: {} {}", move_0.x, move_0.y);
+        let move_0 = *piece_type_dispatcher.get_move_pattern().at(0);
         let position = get!(world, piece_id, (Position));
         let new_x: i8 = position.position.x + move_0.x;
-        println!("new_x: {}", new_x);
         let to = Vec2 { x: position.position.x + move_0.x, y: position.position.y + move_0.y};
 
         arena.move(game_id, piece_id, to);

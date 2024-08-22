@@ -168,6 +168,26 @@
         ],
         "outputs": [],
         "state_mutability": "external"
+      },
+      {
+        "type": "function",
+        "name": "attack",
+        "inputs": [
+          {
+            "name": "game_id",
+            "type": "core::integer::u32"
+          },
+          {
+            "name": "piece_id",
+            "type": "core::integer::u32"
+          },
+          {
+            "name": "target",
+            "type": "camini::types::Vec2"
+          }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
       }
     ]
   },

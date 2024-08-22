@@ -1,6 +1,6 @@
 kind = "DojoContract"
-class_hash = "0x2f2f5936a0e85d451594cbb410114b2c3dc2e8bb0c42746df1d4205949f11dc"
-original_class_hash = "0x2f2f5936a0e85d451594cbb410114b2c3dc2e8bb0c42746df1d4205949f11dc"
+class_hash = "0x526e21233e932345eb62229d097f764d64c6d68f75eebb9565d3db1bc6cd450"
+original_class_hash = "0x526e21233e932345eb62229d097f764d64c6d68f75eebb9565d3db1bc6cd450"
 base_class_hash = "0x0"
 abi = "manifests/dev/base/abis/contracts/ok-gov-3de021f4.json"
 reads = []
@@ -9,6 +9,7 @@ init_calldata = []
 tag = "ok-gov"
 systems = [
     "add_piece",
+    "set_damage_contract",
     "add_effect",
 ]
 manifest_name = "ok-gov-3de021f4"
