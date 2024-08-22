@@ -1,6 +1,6 @@
 kind = "DojoModel"
-class_hash = "0x1e3fdd5f0560c0605d40069d77312ca69b0b34f136b8a6c2ccab0d0050efbae"
-original_class_hash = "0x1e3fdd5f0560c0605d40069d77312ca69b0b34f136b8a6c2ccab0d0050efbae"
+class_hash = "0x2f784b7327699c45a9e819cd9df688149dc1142e788071dd742e561ebd40df5"
+original_class_hash = "0x2f784b7327699c45a9e819cd9df688149dc1142e788071dd742e561ebd40df5"
 abi = "manifests/dev/base/abis/models/ok-Pool-a9992632.json"
 tag = "ok-Pool"
 manifest_name = "ok-Pool-a9992632"
@@ -12,5 +12,10 @@ key = true
 
 [[members]]
 name = "piece_type_ids"
+type = "Array<u32>"
+key = false
+
+[[members]]
+name = "effect_type_ids"
 type = "Array<u32>"
 key = false

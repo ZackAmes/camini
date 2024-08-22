@@ -377,6 +377,10 @@
       {
         "name": "piece_type_ids",
         "type": "core::array::Array::<core::integer::u32>"
+      },
+      {
+        "name": "effect_type_ids",
+        "type": "core::array::Array::<core::integer::u32>"
       }
     ]
   },

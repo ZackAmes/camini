@@ -26,6 +26,7 @@ mod pieces {
 mod effects {
     mod effects;
     mod damage;
+    mod models;
 }
 mod consts;
 

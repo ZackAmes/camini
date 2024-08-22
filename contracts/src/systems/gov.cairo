@@ -4,6 +4,7 @@ use starknet::ContractAddress;
 #[dojo::interface]
 trait IGov {
     fn add_piece(ref world: IWorldDispatcher, address: ContractAddress);
+    fn add_effect(ref world: IWorldDispatcher, address: ContractAddress);
 }
 
 #[dojo::contract]
@@ -12,6 +13,8 @@ mod gov {
     use camini::models::{pool::{Pool}, piece::PieceType, position::{Vec2}};
     use camini::consts::consts::POOL_ID;
     use camini::pieces::pieces::{IPieceDispatcher, IPiece, IPieceDispatcherTrait};
+    use camini::effects::effects::{IEffectDispatcher, IEffect, IEffectDispatcherTrait};
+    use camini::effects::models::Effect;
 
     use starknet::{ContractAddress, get_caller_address};
 
@@ -50,6 +53,40 @@ mod gov {
             pool.piece_type_ids = pieces;
 
             set!(world, (pool, piece_type));
+
+        }
+
+        fn add_effect (ref world: IWorldDispatcher, address: ContractAddress) {
+            let mut pool = get!(world, POOL_ID, (Pool));
+
+            let mut effects = pool.effect_type_ids;
+
+            let mut index =0;
+            
+            let effect_dispatcher = IEffectDispatcher { contract_address: address};
+
+            let test = effect_dispatcher.apply(0);
+
+
+            assert!(test, "invalid implementation");
+
+            while index < effects.len() {
+                let id = *effects.at(index);
+                let checking_effect_type = get!(world, id, PieceType);
+
+                assert!(address != checking_effect_type.contract, "Effect already added");
+
+                index+=1;
+                
+            };
+
+            let effect_type_id = world.uuid();
+            let effect_type = Effect { effect_id: effect_type_id, contract: address };
+
+            effects.append(effect_type_id);
+            pool.effect_type_ids = effects;
+
+            set!(world, (pool, effect_type));
 
         }
     }

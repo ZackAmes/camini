@@ -1,6 +1,6 @@
 kind = "DojoModel"
-class_hash = "0x7ef43edad7e56e96d01ab5745f1b19a09f27b0abf1c156e6cb24b7061916b4b"
-original_class_hash = "0x7ef43edad7e56e96d01ab5745f1b19a09f27b0abf1c156e6cb24b7061916b4b"
+class_hash = "0x47acdf8f97ab48431c76a4cf3f537ad0ff56c341640f0713e8acbcf38173632"
+original_class_hash = "0x47acdf8f97ab48431c76a4cf3f537ad0ff56c341640f0713e8acbcf38173632"
 abi = "manifests/dev/base/abis/models/ok-Piece-828eb000.json"
 tag = "ok-Piece"
 manifest_name = "ok-Piece-828eb000"
@@ -23,4 +23,9 @@ key = false
 [[members]]
 name = "location"
 type = "Location"
+key = false
+
+[[members]]
+name = "data"
+type = "PieceData"
 key = false
