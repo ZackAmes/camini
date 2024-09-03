@@ -3,6 +3,7 @@ class_hash = "0x5307f55ac227d481336649271c87c1d4543f8bb2b30aebd8e0d871aa9beeb07"
 original_class_hash = "0x5307f55ac227d481336649271c87c1d4543f8bb2b30aebd8e0d871aa9beeb07"
 abi = "manifests/dev/base/abis/models/ok-PieceType-22a67789.json"
 tag = "ok-PieceType"
+qualified_path = "camini::models::piece::piece_type"
 manifest_name = "ok-PieceType-22a67789"
 
 [[members]]

@@ -3,6 +3,7 @@ class_hash = "0x554e5c606a36b0e80b23a470e8498856a1d4924d50aabf406eab69fb1c14cf1"
 original_class_hash = "0x554e5c606a36b0e80b23a470e8498856a1d4924d50aabf406eab69fb1c14cf1"
 abi = "manifests/dev/base/abis/models/ok-Tile-fcb463a2.json"
 tag = "ok-Tile"
+qualified_path = "camini::models::position::tile"
 manifest_name = "ok-Tile-fcb463a2"
 
 [[members]]

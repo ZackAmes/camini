@@ -3,6 +3,7 @@ class_hash = "0x564e82dada165acb3f430ab3b2d96bb2eecd3508c806ad1a08b87ab28d5ccc0"
 original_class_hash = "0x564e82dada165acb3f430ab3b2d96bb2eecd3508c806ad1a08b87ab28d5ccc0"
 abi = "manifests/dev/base/abis/models/ok-Player-38fd8f17.json"
 tag = "ok-Player"
+qualified_path = "camini::models::player::player"
 manifest_name = "ok-Player-38fd8f17"
 
 [[members]]

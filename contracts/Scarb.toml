@@ -12,7 +12,7 @@ spawn = "./scripts/spawn.sh"
 move = "./scripts/move.sh"
 
 [dependencies]
-dojo = { git = "https://github.com/dojoengine/dojo", tag = "v1.0.0-alpha.6" }
+dojo = { git = "https://github.com/dojoengine/dojo", tag = "v1.0.0-alpha.9" }
 origami_random = { git = "https://github.com/dojoengine/origami"}
 
 [[target.dojo]]

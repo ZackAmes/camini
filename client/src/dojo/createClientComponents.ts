@@ -1,25 +1,24 @@
 import { overridableComponent } from "@dojoengine/recs";
-import { ContractComponents } from "./generated/bindings/typescript/models.gen";
+import type { ContractComponents } from "./models.gen";
 
 export type ClientComponents = ReturnType<typeof createClientComponents>;
 
 export function createClientComponents({
-    contractComponents,
+  contractComponents,
 }: {
-    contractComponents: ContractComponents;
+  contractComponents: ContractComponents;
 }) {
-    return {
-        ...contractComponents,
-        Position: overridableComponent(contractComponents.Position),
-        Game: overridableComponent(contractComponents.Game),
-        Player: overridableComponent(contractComponents.Player),
-        Tile: overridableComponent(contractComponents.Tile),
-        DamageAmt: overridableComponent(contractComponents.DamageAmt),
-        Global: overridableComponent(contractComponents.Global),
-        Piece: overridableComponent(contractComponents.Piece),
-        PieceType: overridableComponent(contractComponents.PieceType),
-        Pool: overridableComponent(contractComponents.Pool),
-        Team: overridableComponent(contractComponents.Team),
-        Effect: overridableComponent(contractComponents.Effect),
-    };
+  return {
+    ...contractComponents,
+    Position: overridableComponent(contractComponents.Position),
+    DamageAmt: overridableComponent(contractComponents.DamageAmt),
+    Game: overridableComponent(contractComponents.Game),
+    Global: overridableComponent(contractComponents.Global),
+    Piece: overridableComponent(contractComponents.Piece),
+    PieceType: overridableComponent(contractComponents.PieceType),
+    Player: overridableComponent(contractComponents.Player),
+    Pool: overridableComponent(contractComponents.Pool),
+    Team: overridableComponent(contractComponents.Team),
+    Tile: overridableComponent(contractComponents.Tile),
+  };
 }

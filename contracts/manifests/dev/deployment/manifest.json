@@ -1,8 +1,8 @@
 {
   "world": {
     "kind": "WorldContract",
-    "class_hash": "0x458d0ce5b14a4844092bdb62050f462d53362304a13febbac6d973691d61be2",
-    "original_class_hash": "0x458d0ce5b14a4844092bdb62050f462d53362304a13febbac6d973691d61be2",
+    "class_hash": "0xa349b743d361ce4567361475a89b84a386bb383448c6926954e5fe0b525597",
+    "original_class_hash": "0xa349b743d361ce4567361475a89b84a386bb383448c6926954e5fe0b525597",
     "abi": [
       {
         "type": "impl",
@@ -1229,8 +1229,8 @@
         ]
       }
     ],
-    "address": "0x7837989e7bd026488ce42bcdd5ba1693d096a164f86514a4f8c16e21374d0a6",
-    "transaction_hash": "0x17550480a041808db25c189027e2d9541e23e3ab5e4443b91a4e95c6ad009f3",
+    "address": "0x94992ee6e22ff194ffa60c36960bfeddcacb22ec19f42150f6e3384dc5b48a",
+    "transaction_hash": "0x1c672e89fb91b6f5809350739fdbda9c10c63411e813e2de4fd06e88421cec7",
     "block_number": 3,
     "seed": "camini",
     "metadata": {
@@ -1250,9 +1250,9 @@
   "contracts": [
     {
       "kind": "DojoContract",
-      "address": "0x74333bf6b8345620c8ecde0536e76160df1d241786f28bbc5e0528a643219dd",
-      "class_hash": "0x54d6bb9156747bca6d376182b328918a183868c690e6cf54063ffaa500a891e",
-      "original_class_hash": "0x54d6bb9156747bca6d376182b328918a183868c690e6cf54063ffaa500a891e",
+      "address": "0x4ae4a35af8843b5efc8c4485b8d553cd933f28ec8ba3b7f64b0f0ef1909252d",
+      "class_hash": "0x26212a425fb0f71c5b832e4485e7736b53ec6e256ccc8d519ccd9da414c84eb",
+      "original_class_hash": "0x26212a425fb0f71c5b832e4485e7736b53ec6e256ccc8d519ccd9da414c84eb",
       "base_class_hash": "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2",
       "abi": [
         {
@@ -1560,9 +1560,9 @@
     },
     {
       "kind": "DojoContract",
-      "address": "0x70b7a453985439ff22b394ad024d646c2b76f70a7c750c6bdf852d3e6b0a9d7",
-      "class_hash": "0x270d25746079005ba08c3bdb11e45d737d7dfc33499489c5c50378ef30e1c63",
-      "original_class_hash": "0x270d25746079005ba08c3bdb11e45d737d7dfc33499489c5c50378ef30e1c63",
+      "address": "0x6507931819ffd80cbf9de89685653750e6f38b89725129f7bdfe0b59275c04c",
+      "class_hash": "0x45e66dfbba1182f1ec00e09041ad2478fc0c06bdf759f360ee2d4c2e58c4726",
+      "original_class_hash": "0x45e66dfbba1182f1ec00e09041ad2478fc0c06bdf759f360ee2d4c2e58c4726",
       "base_class_hash": "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2",
       "abi": [
         {
@@ -1853,9 +1853,9 @@
     },
     {
       "kind": "DojoContract",
-      "address": "0x2d0959006c4e6d218fb689ca699d27f5cbf6354e38245ca5e6353922cd4e394",
-      "class_hash": "0x4ba01476d766a1ccaa5844c166590c4b54f1d4a0c264294461cf430fa694ca7",
-      "original_class_hash": "0x4ba01476d766a1ccaa5844c166590c4b54f1d4a0c264294461cf430fa694ca7",
+      "address": "0x30864520b611472cc5adb0376fd8437c2e9716f7957de0e8a5bd3c97bfb1b41",
+      "class_hash": "0x796677ad9d5c592fc6c686ca21f8fe26b9f06fd31318ed4067f44fe800a79d8",
+      "original_class_hash": "0x796677ad9d5c592fc6c686ca21f8fe26b9f06fd31318ed4067f44fe800a79d8",
       "base_class_hash": "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2",
       "abi": [
         {
@@ -2163,9 +2163,9 @@
     },
     {
       "kind": "DojoContract",
-      "address": "0x123c11b48245dbc3dabad9d80ca74c3d89e1142abb43cf7a76fc728d224114f",
-      "class_hash": "0x4b0140e65acfe0bea2b3199af86c92a7e0b806e9516cd08cfa84d72c6dff4f4",
-      "original_class_hash": "0x4b0140e65acfe0bea2b3199af86c92a7e0b806e9516cd08cfa84d72c6dff4f4",
+      "address": "0x2c1cfdd4e63c1b775f18afc2dc18f9a212e86049551560cdf09c29545b1fe96",
+      "class_hash": "0x3550db90d908e7ca8e39368f1558080a26d672046b6fc4358aa4231e391c44b",
+      "original_class_hash": "0x3550db90d908e7ca8e39368f1558080a26d672046b6fc4358aa4231e391c44b",
       "base_class_hash": "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2",
       "abi": [
         {
@@ -2452,9 +2452,9 @@
     },
     {
       "kind": "DojoContract",
-      "address": "0x127b2b0451d45130b81e714faa490df0d0fcf9ff3bc9ccc517eecabfb37818b",
-      "class_hash": "0xede9f66c9a74f72de28d555ba6b903e8226686ac02df40b71966a7097fd7de",
-      "original_class_hash": "0xede9f66c9a74f72de28d555ba6b903e8226686ac02df40b71966a7097fd7de",
+      "address": "0x373e4caebf565e9ae21ff53161dfd85940885b21afcfbf445979b558ad9cb3a",
+      "class_hash": "0x40b0ca5e9cb980a46c5779fd48c4c8d0aa05a63c7f315790713497bc1897548",
+      "original_class_hash": "0x40b0ca5e9cb980a46c5779fd48c4c8d0aa05a63c7f315790713497bc1897548",
       "base_class_hash": "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2",
       "abi": [
         {
@@ -2696,9 +2696,9 @@
     },
     {
       "kind": "DojoContract",
-      "address": "0x4a1c8334ed4aa89422ce0755d5b4a96d3a5076b45c811c98de30b502f47d0f7",
-      "class_hash": "0x526e21233e932345eb62229d097f764d64c6d68f75eebb9565d3db1bc6cd450",
-      "original_class_hash": "0x526e21233e932345eb62229d097f764d64c6d68f75eebb9565d3db1bc6cd450",
+      "address": "0xff65a401ff4f5f3c81a78b797b84e9a9aff017373fb5236796fca97c4b90e",
+      "class_hash": "0x169940e0549934076f738a6558ba63cd48ac376329e553f8606673da1f200b",
+      "original_class_hash": "0x169940e0549934076f738a6558ba63cd48ac376329e553f8606673da1f200b",
       "base_class_hash": "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2",
       "abi": [
         {
@@ -2971,9 +2971,9 @@
     },
     {
       "kind": "DojoContract",
-      "address": "0xf96be03584ecbd076ddb4d5672773f632f05237cdc05b5dfd8db0dc49a24c9",
-      "class_hash": "0x5a387431a9961749d0b740b2d42f294f97dd3bb0ce5d4b46cfaad9e4e1d5a1e",
-      "original_class_hash": "0x5a387431a9961749d0b740b2d42f294f97dd3bb0ce5d4b46cfaad9e4e1d5a1e",
+      "address": "0x50d47e1ea57f4cac383ee7a5ef53438c6162f4f4f82063ca397be26c094438",
+      "class_hash": "0x2904810f841c4232cb6b8af606e89b54b8397be7746c8aaf54a569584a81c",
+      "original_class_hash": "0x2904810f841c4232cb6b8af606e89b54b8397be7746c8aaf54a569584a81c",
       "base_class_hash": "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2",
       "abi": [
         {
@@ -3255,9 +3255,9 @@
     },
     {
       "kind": "DojoContract",
-      "address": "0x6f148a93a31c327179dd78a0fb1695cbcd07c7e9cb9e5523f3fffc45c61c635",
-      "class_hash": "0x6c295d046e9353f9b7b364ca42005d4768f63ee7b7d71b7f77d34fa5aef705b",
-      "original_class_hash": "0x6c295d046e9353f9b7b364ca42005d4768f63ee7b7d71b7f77d34fa5aef705b",
+      "address": "0x734f465455d09ec361b1bab3102b8d2c9d77be3b9adf999eda753236d0490a2",
+      "class_hash": "0x683bb297ec1c94d31f47114247f9a9398f672444da8286ece0530975bfb5731",
+      "original_class_hash": "0x683bb297ec1c94d31f47114247f9a9398f672444da8286ece0530975bfb5731",
       "base_class_hash": "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2",
       "abi": [
         {
@@ -3961,6 +3961,7 @@
         }
       ],
       "tag": "ok-DamageAmt",
+      "qualified_path": "camini::effects::models::damage_amt",
       "manifest_name": "ok-DamageAmt-1b34a805"
     },
     {
@@ -4387,6 +4388,7 @@
         }
       ],
       "tag": "ok-Effect",
+      "qualified_path": "camini::effects::models::effect",
       "manifest_name": "ok-Effect-cb9cbd0e"
     },
     {
@@ -4885,6 +4887,7 @@
         }
       ],
       "tag": "ok-Game",
+      "qualified_path": "camini::models::game::game",
       "manifest_name": "ok-Game-57e3f47c"
     },
     {
@@ -5320,6 +5323,7 @@
         }
       ],
       "tag": "ok-Global",
+      "qualified_path": "camini::models::global::global",
       "manifest_name": "ok-Global-6bd7f442"
     },
     {
@@ -5805,6 +5809,7 @@
         }
       ],
       "tag": "ok-Piece",
+      "qualified_path": "camini::models::piece::piece",
       "manifest_name": "ok-Piece-828eb000"
     },
     {
@@ -6240,6 +6245,7 @@
         }
       ],
       "tag": "ok-PieceType",
+      "qualified_path": "camini::models::piece::piece_type",
       "manifest_name": "ok-PieceType-22a67789"
     },
     {
@@ -6675,6 +6681,7 @@
         }
       ],
       "tag": "ok-Player",
+      "qualified_path": "camini::models::player::player",
       "manifest_name": "ok-Player-38fd8f17"
     },
     {
@@ -7110,6 +7117,7 @@
         }
       ],
       "tag": "ok-Pool",
+      "qualified_path": "camini::models::pool::pool",
       "manifest_name": "ok-Pool-a9992632"
     },
     {
@@ -7559,6 +7567,7 @@
         }
       ],
       "tag": "ok-Position",
+      "qualified_path": "camini::models::position::position",
       "manifest_name": "ok-Position-54881f2f"
     },
     {
@@ -8025,6 +8034,7 @@
         }
       ],
       "tag": "ok-Team",
+      "qualified_path": "camini::models::team::team",
       "manifest_name": "ok-Team-718fa5ed"
     },
     {
@@ -8474,6 +8484,7 @@
         }
       ],
       "tag": "ok-Tile",
+      "qualified_path": "camini::models::position::tile",
       "manifest_name": "ok-Tile-fcb463a2"
     }
   ]
